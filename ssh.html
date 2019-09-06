@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      document.getElementsByTagName("html")[0].className += " js";
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>SSH</title>
+  </head>
+  <body>
+    <header class="cd-main-header text--center flex flex--column flex--center">
+      <h1>
+        Processus de connexion Git d'un environnement de développement local
+        avec cPanel et GitHub
+      </h1>
+    </header>
+
+    <section class="cd-timeline js-cd-timeline">
+      <div class="container container--lg cd-timeline__container">
+        <div class="cd-timeline__block">
+          <div class="cd-timeline__img cd-timeline__img--picture">
+            <img src="assets/img/ic_computer_24px.svg" alt="Picture" />
+          </div>
+          <!-- cd-timeline__img -->
+
+          <div class="cd-timeline__content text-component">
+            <h2>Création du compte sur cPanel</h2>
+            <p class="text--subtle">
+              Le compte doit être créé sur cPanel et les accès nécessaires configurés ('shell' doit être activé).
+            </p>
+
+            <div class="flex flex--space-between flex--center-y">
+                    <a href="https://documentation.cpanel.net/" class="btn btn--subtle">Documentation de cPanel</a>
+            </div>
+          </div>
+          <!-- cd-timeline__content -->
+        </div>
+        <!-- cd-timeline__block -->
+
+        <div class="cd-timeline__block">
+          <div class="cd-timeline__img cd-timeline__img--movie">
+            <img src="assets/img/ic_computer_24px.svg" alt="Movie" />
+          </div>
+          <!-- cd-timeline__img -->
+
+          <div class="cd-timeline__content text-component">
+            <h2>Créer une clé SSH</h2>
+            <p class="text--subtle">
+              Dans le cPanel, aller sur 'Accès SSH' et générer une clé. Aller dans 'gérer' et autoriser la clé.
+       <br>
+                    Ensuite, <strong>télécharger la clé privée</strong> sur l'ordinateur local (seule la clé privée est nécessaire).
+            </p>
+
+            <div class="flex flex--space-between flex--center-y">
+             
+              <a href="https://documentation.cpanel.net/" class="btn btn--subtle">Documentation de cPanel</a>
+            </div>
+          </div>
+          <!-- cd-timeline__content -->
+        </div>
+        <!-- cd-timeline__block -->
+
+        <div class="cd-timeline__block">
+          <div class="cd-timeline__img cd-timeline__img--picture">
+            <img src="assets/img/ic_computer_24px.svg" alt="Picture" />
+          </div>
+          <!-- cd-timeline__img -->
+
+          <div class="cd-timeline__content text-component">
+            <h2>Ajouter la clé à l'ordinateur local</h2>
+            <p class="text--subtle">
+                    Copier la clé privée dans le répertoire de clés de l’ordinateur local (Ex : $ cp /c/Users/camauger/Desktop/boiteabijoux ~/.ssh).
+                    Autoriser localement la clé avec la procédure suivante :</p>
+                    <ul>
+                        <li>démarrer l'agent d'autorisation - <em>eval $(ssh-agent)</em></li>
+                        <li>ajouter la clé - <em>ssh-add ~/.ssh/nomdelaclé</em> </li>
+                        <li>l'ajout devrait être confirmé avec un message similaire - <em>Identity added: /c/Users/.ssh/nomdelaclé</em> </li>
+                    </ul>
+            
+
+            <div class="flex flex--space-between flex--center-y">
+             
+                    <a href="https://documentation.cpanel.net/" class="btn btn--subtle">Documentation de cPanel</a>
+            </div>
+          </div>
+          <!-- cd-timeline__content -->
+        </div>
+        <!-- cd-timeline__block -->
+
+        <div class="cd-timeline__block">
+          <div class="cd-timeline__img cd-timeline__img--location">
+            <img src="assets/img/ic_computer_24px.svg" alt="Location" />
+          </div>
+          <!-- cd-timeline__img -->
+
+          <div class="cd-timeline__content text-component">
+            <h2>Git Version Control (cPanel)</h2>
+            <p class="text--subtle">
+              Dans la section <strong>Git Version Control</strong> de cPanel, créer un répertoire à l'emplacement voulu. Dans ce répertoire, ajouter l'identité de l'utilisateur avec 'git config' (user.email "email" et user.name "name"). Ajouter aussi la clé avec la même procédure qu'en local. Dans le répertoire, créer un fichier '.cpanel.yml' et configurer le déploiement. Ajouter les fichiers avec les commandes habituelles ('git add'). Naviguer ensuite dans l'ordinateur local, choisir le répertoi
+            </p>
+
+            <div class="flex flex--space-between flex--center-y">
+              
+                    <a href="https://documentation.cpanel.net/" class="btn btn--subtle">Documentation de cPanel</a>
+            </div>
+          </div>
+          <!-- cd-timeline__content -->
+        </div>
+        <!-- cd-timeline__block -->
+
+        <div class="cd-timeline__block">
+          <div class="cd-timeline__img cd-timeline__img--location">
+            <img src="assets/img/ic_computer_24px.svg" alt="Location" />
+          </div>
+          <!-- cd-timeline__img -->
+
+          <div class="cd-timeline__content text-component">
+            <h2>Git Local</h2>
+            <p class="text--subtle">
+              Sur l'ordinateur local, naviguer à l'emplacement voulu et faire 'git clone' (avec l'adresse fournie par cPanel). Confirmer l'ajout du serveur (Are you sure you want to continue connecting (yes/no)?). Ajouter un premier fichier (ex. echo "# README" >> README.md).
+              Ensuite faire les commandes suivantes 'git add README.md', 'git commit -m "Initial Commit"' et 'git push -u origin master'. Faire également 'git pull' pour obtenir tout le répertoire sur le cPanel.
+              
+            </p>
+
+            <div class="flex flex--space-between flex--center-y">
+              
+                    <a href="https://documentation.cpanel.net/" class="btn btn--subtle">Documentation de cPanel</a>
+            </div>
+          </div>
+          <!-- cd-timeline__content -->
+        </div>
+        <!-- cd-timeline__block -->
+
+        <div class="cd-timeline__block">
+          <div class="cd-timeline__img cd-timeline__img--movie">
+            <img src="assets/img/ic_computer_24px.svg" alt="Movie" />
+          </div>
+          <!-- cd-timeline__img -->
+
+          <div class="cd-timeline__content text-component">
+            <h2>GitHub</h2>
+            <p class="text--subtle">Créer un répertoire.
+                    Ajouter la clé de déploiement (Settings > Deploy keys).
+                    Cocher la case « <em>Allow write access</em> ».
+                    Dans le cPanel en connexion SSH, faire les commandes suivantes :</p>
+                    
+                    <ul>
+                        <li>git remote add origin git@github.com:PROSPECTION-huguetten/boiteabijoux.git</li>
+                        <li>git push -u origin master</li>
+                    </ul>
+                    
+                    
+                    
+
+            <div class="flex flex--space-between flex--center-y">
+                    <a href="https://help.github.com/en#dotcom" class="btn btn--subtle">Documentation de GitHub</a>
+            </div>
+          </div>
+          <!-- cd-timeline__content -->
+        </div>
+        <!-- cd-timeline__block -->
+      </div>
+    </section>
+    <!-- cd-timeline -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
